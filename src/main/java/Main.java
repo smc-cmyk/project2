@@ -1,5 +1,6 @@
-import javafx.application.Application;
-import javafx.stage.Stage;
+
+//import javafx.application.Application;
+//import javafx.stage.Stage;
 
 /**
  * Class calls SceneFactory to create scene
@@ -8,7 +9,7 @@ import javafx.stage.Stage;
  * @version 0.1.0
  * @since 3/25/26
  */
-public class Main extends Application {
+//public class Main extends Application {
 
   /**
    * Called by the JavaFX runtime after the application is initialized.
@@ -16,16 +17,16 @@ public class Main extends Application {
    *
    * @param stage the primary window provided by the JavaFX runtime
    */
-  @Override
-  public void start(Stage stage) {
+  //@Override
+  //public void start(Stage stage) {
 
-  }
+  //}
 
   /**
    * Application entry point. JavaFX requires calling launch(), which
    * internally creates the JavaFX runtime and calls start().
    */
-  public static void main(String[] args) {
-    launch(args);
-  }
-}
+ // public static void main(String[] args) {
+   // launch(args);
+  //}
+//}

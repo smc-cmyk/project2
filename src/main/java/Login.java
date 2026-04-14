@@ -1,3 +1,4 @@
+/**
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,7 +15,7 @@ import javafx.util.Duration;
  * @version 0.1.0
  * @since 4/12/2026
  */
-
+/**
 public interface Login {
 
-}
+} */
