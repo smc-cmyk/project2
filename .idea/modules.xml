@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/project2.iml" filepath="$PROJECT_DIR$/.idea/project2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaFX_Starter.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaFX_Starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaFX_Starter.main.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaFX_Starter.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaFX_Starter.test.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaFX_Starter.test.iml" />
     </modules>
   </component>
 </project>
