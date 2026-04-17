@@ -15,20 +15,23 @@ import javafx.stage.Stage;
 
 public class Instructions {
 
+    public static Label instructions;
+    public static Button back;
+
     public static Scene create(Stage stage) {
 
         //Title of the scene
         Label title = new Label("Instructions");
 
         //Text of instructions
-        Label instructions = new Label(
+        instructions = new Label(
                 "Click on each button to navigate to desired scene \n" + "\n" +
                         "Enter desired USD amount to convert, then click desired currency to convert to \n" + "\n" +
                         "Click 'Return' to go to the previous scene" + "\n"
         );
 
         //Back button
-        Button back = new Button("Return");
+        back = new Button("Return");
 
         //Back button to go back to the main menu
         back.setOnAction(e -> SceneFactory.switchScene(stage, SceneFactory.MAIN_MENU));
