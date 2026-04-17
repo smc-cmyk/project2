@@ -2,7 +2,7 @@
 * Interface for Instructions Scene
 *
 * @author: Linda Nguyen
-* @since: 4/14/2026
+* @since: 4/16/2026
 *
  */
 
@@ -25,5 +25,10 @@ public class Instructions {
                         "Enter desired USD amount to convert, then click desired currency to convert to \n" + "\n" +
                         "Click 'Return' to go to the previous scene" + "\n"
         );
+
+        VBox box = new VBox(20, title, instructions);
+        box.setAlignment(Pos.CENTER);
+
+        return new Scene(box, 500, 500);
     }
 }
