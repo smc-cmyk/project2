@@ -15,7 +15,15 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public interface Instructions {
+public class Instructions {
 
+    public static Scene create(Stage stage) {
+        Label title = new Label("Instructions");
 
+        Label instructions = new Label(
+                "Click on each button to navigate to desired scene \n" + "\n" +
+                        "Enter desired USD amount to convert, then click desired currency to convert to \n" + "\n" +
+                        "Click 'Return' to go to the previous scene" + "\n"
+        );
+    }
 }
