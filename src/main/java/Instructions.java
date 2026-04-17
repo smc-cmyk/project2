@@ -26,7 +26,11 @@ public class Instructions {
                         "Click 'Return' to go to the previous scene" + "\n"
         );
 
-        VBox box = new VBox(20, title, instructions);
+        Button back = new Button("Return");
+
+        back.setOnAction(e -> SceneFactory.switchScene(stage, SceneFactory.MAIN_MENU));
+
+        VBox box = new VBox(20, title, instructions, back);
         box.setAlignment(Pos.CENTER);
 
         return new Scene(box, 500, 500);
