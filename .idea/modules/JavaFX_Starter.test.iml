@@ -10,9 +10,11 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="JavaFX_Starter.main" />
+    <orderEntry type="library" name="Gradle: org.xerial:sqlite-jdbc:3.45.1.0" level="project" />
     <orderEntry type="library" name="Gradle: org.openjfx:javafx-fxml:linux:22" level="project" />
     <orderEntry type="library" name="Gradle: org.openjfx:javafx-controls:linux:22" level="project" />
     <orderEntry type="library" name="Gradle: org.junit.jupiter:junit-jupiter:5.10.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.36" level="project" />
     <orderEntry type="library" name="Gradle: org.openjfx:javafx-graphics:linux:22" level="project" />
     <orderEntry type="library" name="Gradle: org.junit.jupiter:junit-jupiter-params:5.10.0" level="project" />
     <orderEntry type="library" name="Gradle: org.junit.jupiter:junit-jupiter-api:5.10.0" level="project" />

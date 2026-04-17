@@ -9,13 +9,12 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
- * Interface for Login scene
+ * Main Menu class providing button navigation to other scenes
  *
  * @author Nettra Leandre
  * @version 0.1.0
- * @since 4/12/2026
+ * @since 4/17/2026
  */
-
-public interface Login {
+public class MainMenu {
 
 }
