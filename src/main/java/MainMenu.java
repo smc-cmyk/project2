@@ -64,7 +64,6 @@ public interface MainMenu {
         stage.setScene(factory.create(SceneType.LOGOUT, stage))
     );
 
-    stage.setTitle(label);
     stage.setScene(scene);
     stage.show();
 
