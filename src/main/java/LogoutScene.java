@@ -16,34 +16,41 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class LogoutScene {
+    //UI Strings
     private static final String logout = "Logout";
     private static final String check = "Are you sure you want to logout?";
     private static final String yes = "Yes";
     private static final String no = "No";
 
+    // Variables
     static Label logoutLabel;
     static Label checkLabel;
     static Button yesButton;
     static Button noButton;
 
     public Scene create(Stage stage) {
+        // Initialization
         logoutLabel = new Label(logout);
         checkLabel = new Label(check);
         yesButton = new Button(yes);
         noButton = new Button(no);
 
+        // Yes button takes you to the login scene
         yesButton.setOnAction(e -> {
             stage.setScene(SceneFactory.create(SceneType.LOGIN, stage));
         });
 
+        // No button takes you to the main menu scene
         noButton.setOnAction(e -> {
             stage.setScene(SceneFactory.create(SceneType.MAIN_MENU, stage));
         });
 
+        // Created the VBox
         VBox vBox = new VBox(10, logoutLabel, checkLabel, yesButton, noButton);
         vBox.setAlignment(Pos.CENTER);
         vBox.setSpacing(10);
 
+        // Display the scene with dimensions
         Scene scene = new Scene(vBox, 500, 500);
         return scene;
 }
