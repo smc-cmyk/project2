@@ -17,9 +17,14 @@ import org.junit.jupiter.api.Test;
  * @since 4/13/2026
  */
 class LoginTest {
+  static Database db;
+
   @BeforeAll
   static void startup() {
     Platform.startup(() -> {});
+
+    db = new Database();
+    db.createUser("john", "123456");
   }
 
   @Test
@@ -41,25 +46,36 @@ class LoginTest {
   }
 
   @Test
+  void testRegister() {
+    Scene scene = Login.buildLogin(new Stage());
+    VBox root = (VBox) scene.getRoot();
+
+    boolean exists = false;
+
+    for (Node node : root.getChildren()) {
+      if (node instanceof Button button) {
+        if (button.getText().equals("Register")) {
+          exists = true;
+          break;
+        }
+      }
+    }
+
+    assertTrue(exists);
+  }
+
+  @Test
   void testCorrectLogin() {
-    Login login = new Login();
-    boolean isCorrect = Login.validateLogin("john", "123456");
-    assertTrue(isCorrect);
+    assertTrue(db.checkUser("john", "123456"));
   }
 
   @Test
   void testIncorrectUsername() {
-    Login login = new Login();
-    boolean isCorrect = Login.validateLogin(" ", "123456");
-    assertFalse(isCorrect);
+    assertFalse(db.checkUser("j", "123456"));
   }
 
   @Test
   void testIncorrectPassword() {
-    Login login = new Login();
-    boolean isCorrect = Login.validateLogin("john", " ");
-    assertFalse(isCorrect);
+    assertFalse(db.checkUser("john", "1"));
   }
-
-
 }
