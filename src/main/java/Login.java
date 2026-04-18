@@ -3,6 +3,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -15,29 +16,18 @@ import javafx.stage.Stage;
  * @since 4/12/2026
  */
 
-public interface Login {
-  int SCENE_WIDTH = 400;
-  int SCENE_HEIGHT = 300;
-  String title = "Login";
-  String enter = "Enter";
-  String register = "Register";
-  String username = "Username";
-  String password = "Password";
-  String usernamePrompt = "Enter username";
-  String passwordPrompt = "Enter password";
-  TextField usernameInput = new TextField();
-  TextField passwordInput = new TextField();
-
-  static boolean validateLogin(Database db, String username, String password) {
-    if (username == null || password == null) return false;
-
-    username = username.trim();
-    password = password.trim();
-
-    if (username.isEmpty() || password.isEmpty()) return false;
-
-    return db.checkUser(username, password);
-  }
+public class Login {
+  static int SCENE_WIDTH = 400;
+  static int SCENE_HEIGHT = 300;
+  static String title = "Login";
+  static String enter = "Enter";
+  static String register = "Register";
+  static String username = "Username";
+  static String password = "Password";
+  static String usernamePrompt = "Enter username";
+  static String passwordPrompt = "Enter password";
+  static TextField usernameInput = new TextField();
+  static PasswordField passwordInput = new PasswordField();
 
   static Scene buildLogin(Stage stage) {
     SceneFactory factory = new SceneFactory();
@@ -46,8 +36,6 @@ public interface Login {
     Label usernameLabel = new Label(username);
     Label passwordLabel = new Label(password);
     Label messageLabel = new Label();
-    TextField usernameInput = new TextField();
-    TextField passwordInput = new TextField();
     usernameInput.setPromptText(usernamePrompt);
     passwordInput.setPromptText(passwordPrompt);
     Button enterButton = new Button(enter);
