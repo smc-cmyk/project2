@@ -1,4 +1,3 @@
-
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,5 +16,8 @@ import javafx.util.Duration;
  */
 
 public interface Login {
+  String label = "Login";
+  String enter = "Enter";
+
 
 }
