@@ -33,8 +33,10 @@ public class Instructions {
         //Back button
         back = new Button("Return");
 
-        //Back button to go back to the main menu
-        back.setOnAction(e -> SceneFactory.switchScene(stage, SceneFactory.MAIN_MENU));
+        SceneFactory factory = new SceneFactory();
+        back.setOnAction(e ->
+            stage.setScene(factory.create(SceneType.MAIN_MENU, stage))
+        );
 
         //Spacing and content
         VBox box = new VBox(10, title, instructions, back);

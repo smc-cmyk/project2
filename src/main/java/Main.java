@@ -19,7 +19,10 @@ public class Main extends Application {
    */
   @Override
   public void start(Stage stage) {
-
+    SceneFactory factory = new SceneFactory();
+    stage.setScene(factory.create(SceneType.LOGIN, stage));
+    stage.setTitle("Login");
+    stage.show();
   }
 
   /**
