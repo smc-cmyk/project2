@@ -1,5 +1,5 @@
 /*
- * Instructions Unit test for Instructions Scene
+ * Instructions Unit test for Logout Scene
  *
  * @author: Linda Nguyen
  * @since: 4/18/2026
@@ -24,6 +24,7 @@ public class LogoutTest {
         Platform.startup(() -> {});
     }
 
+    // Check if the logout scene works looking for the expected text
     @Test
     void testLogout() {
         stage = new Stage();
@@ -34,6 +35,6 @@ public class LogoutTest {
         stage.show();
 
         assertNotNull(stage.getScene());
-        assertEquals("Are you sure you wante to logout?", LogoutScene.checkLabel.getText());
+        assertEquals("Are you sure you want to logout?", LogoutScene.checkLabel.getText());
     }
 }
