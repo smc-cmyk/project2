@@ -75,15 +75,16 @@ public class Database {
     }
 
     //create User
-    public void createUser(String username, String password) {
+    public boolean createUser(String username, String password) {
         String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, username);
             pstmt.setString(2, password);
             pstmt.executeUpdate();
-            System.out.println("User added.");
+            return true;
         } catch (SQLException e) {
-            System.err.println("insertUser failed: " + e.getMessage());
+            return false;
         }
     }
 
