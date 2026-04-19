@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 public class LogoutScene {
     //UI Strings
     private static final String logout = "Logout";
-    private static final String check = "Are you sure you want to logout?";
+     static final String check = "Are you sure you want to logout?";
     private static final String yes = "Yes";
     private static final String no = "No";
 
@@ -29,6 +29,9 @@ public class LogoutScene {
     static Button noButton;
 
     public Scene create(Stage stage) {
+
+        SceneFactory factory = new SceneFactory();
+
         // Initialization
         logoutLabel = new Label(logout);
         checkLabel = new Label(check);
@@ -37,12 +40,12 @@ public class LogoutScene {
 
         // Yes button takes you to the login scene
         yesButton.setOnAction(e -> {
-            stage.setScene(SceneFactory.create(SceneType.LOGIN, stage));
+            stage.setScene(factory.create(SceneType.LOGIN, stage));
         });
 
         // No button takes you to the main menu scene
         noButton.setOnAction(e -> {
-            stage.setScene(SceneFactory.create(SceneType.MAIN_MENU, stage));
+            stage.setScene(factory.create(SceneType.MAIN_MENU, stage));
         });
 
         // Created the VBox
