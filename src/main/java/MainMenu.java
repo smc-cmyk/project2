@@ -1,7 +1,7 @@
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -13,6 +13,8 @@ import javafx.stage.Stage;
  * @since 4/17/2026
  */
 public interface MainMenu {
+  int SCENE_WIDTH = 400;
+  int SCENE_HEIGHT = 300;
   String label = "Main Menu";
   String converter = "USD Converter";
   String instructions = "Instructions";
@@ -23,14 +25,20 @@ public interface MainMenu {
 
   static Scene buildMenu(Stage stage) {
     SceneFactory factory = new SceneFactory();
+    stage.setTitle(label);
 
-    Label menuLabel = new Label(label);
     Button converterButton = new Button(converter);
     Button instructionsButton = new Button(instructions);
     Button ratesButton = new Button(rates);
     Button ratesTableButton = new Button(ratesTable);
     Button ratesGraphButton = new Button(ratesGraph);
     Button logoutButton = new Button(logout);
+
+    VBox layout = new VBox(12, converterButton, instructionsButton,
+        ratesButton, ratesTableButton, ratesGraphButton, logoutButton);
+    layout.setAlignment(Pos.CENTER);
+    layout.setPadding(new Insets(30));
+    Scene scene = new Scene(layout, SCENE_WIDTH, SCENE_HEIGHT);
 
     converterButton.setOnAction(e ->
         stage.setScene(factory.create(SceneType.US_TO_, stage))
@@ -56,11 +64,9 @@ public interface MainMenu {
         stage.setScene(factory.create(SceneType.LOGOUT, stage))
     );
 
-    VBox layout = new VBox(10, menuLabel, converterButton, instructionsButton,
-        ratesButton, ratesTableButton, ratesGraphButton, logoutButton);
+    stage.setScene(scene);
+    stage.show();
 
-    layout.setAlignment(Pos.CENTER);
-
-    return new Scene(layout, 400, 400);
+    return scene;
   }
 }
