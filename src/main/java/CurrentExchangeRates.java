@@ -1,3 +1,5 @@
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,7 +23,7 @@ public class CurrentExchangeRates {
     private static Button returnButton;
 
     public static Scene create (Stage stage) {
-        SceneFactory sceneFactory = new SceneFactory();
+        SceneFactory factory = new SceneFactory();
         stage.setTitle(title + " - " + timestamp);
 
         headerLabel = new Label(title);
@@ -29,14 +31,18 @@ public class CurrentExchangeRates {
 
         returnButton = new Button("Return to Main Menu");
 
-        VBox root = new VBox(headerLabel, dateLabel, returnButton);
+        VBox root = new VBox(12, headerLabel, dateLabel, returnButton);
+        root.setAlignment(Pos.CENTER);
+        root.setPadding(new Insets(30));
 
         Scene scene = new Scene(root);
 
         //Return to main menu
         returnButton.setOnAction(e -> {
-            stage.setScene(sceneFactory.create(SceneType.MAIN_MENU,stage));
+            stage.setScene(factory.create(SceneType.MAIN_MENU,stage));
         });
+
+        //TODO: Implement TableView of data
 
         stage.setScene(scene);
         stage.show();
