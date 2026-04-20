@@ -24,8 +24,8 @@ public class SceneFactory {
 //                return GraphOfExchangeHistoryScene.create(stage);
 //            case TABLE_OF_EXCHANGE_RATE_HISTORY_WITH_TIMESTAMPS:
 //                return TableOfExchangeHistoryWithTimestampsScene.create(stage);
-//            case US_TO_:
-//                return UStoScene.create(stage);
+            case US_TO_:
+                return UStoScene.create(stage);
             case INSTRUCTIONS:
                 return Instructions.create(stage);
 //            case LOGOUT:
