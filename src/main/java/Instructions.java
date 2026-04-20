@@ -25,9 +25,9 @@ public class Instructions {
 
         //Text of instructions
         instructions = new Label(
-                "Click on each button to navigate to desired scene \n" + "\n" +
-                        "Enter desired USD amount to convert, then click desired currency to convert to \n" + "\n" +
-                        "Click 'Return' to go to the previous scene" + "\n"
+                "Click on each button to navigate to desired scene. \n" + "\n" +
+                        "Enter desired USD amount to convert, then click desired currency to convert to. \n" + "\n" +
+                        "Click 'Return' to go to the previous scene." + "\n"
         );
 
         //Back button
@@ -39,10 +39,10 @@ public class Instructions {
         );
 
         //Spacing and content
-        VBox box = new VBox(10, title, instructions, back);
+        VBox box = new VBox(12, title, instructions, back);
         box.setAlignment(Pos.CENTER);
 
         //Returns the scene with width and height
-        return new Scene(box, 500, 500);
+        return new Scene(box, 590, 300);
     }
 }
