@@ -1,8 +1,13 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -22,6 +27,10 @@ public class CurrentExchangeRates {
     private static Label dateLabel;
     private static Button returnButton;
 
+    //Object for Current Currency Conversion Rates
+    //public void currToday(String curr, Double amount) {
+        //this.curr =;
+    //}
     public static Scene create (Stage stage) {
         SceneFactory factory = new SceneFactory();
         stage.setTitle(title + " - " + timestamp);
@@ -43,6 +52,15 @@ public class CurrentExchangeRates {
         });
 
         //TODO: Implement TableView of data
+        TableView<Object> currentExchange = new TableView<>();
+
+        ObservableList<Object> data = FXCollections.observableArrayList();
+
+        TableColumn<Object, String> dateCol = new TableColumn<>("CURRENCY");
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("currency"));
+        TableColumn<Object, String> exchangeRateCol = new TableColumn<>("1 USD TO FOREIGN CURRENCY");
+        exchangeRateCol.setCellValueFactory(new PropertyValueFactory<>("exchangeRate"));
+        currentExchange.getColumns().addAll(dateCol, exchangeRateCol);
 
         stage.setScene(scene);
         stage.show();
