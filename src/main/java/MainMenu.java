@@ -66,7 +66,6 @@ public class MainMenu {
     );
 
     stage.setScene(scene);
-    stage.show();
 
     return scene;
   }
