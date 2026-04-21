@@ -24,7 +24,8 @@ public class MainMenu {
   static String logout = "Logout";
 
   static Scene buildMenu(Stage stage) {
-    SceneFactory factory = new SceneFactory();
+    Database db = new Database();
+    SceneFactory factory = new SceneFactory(db);
     stage.setTitle(label);
 
     Button converterButton = new Button(converter);

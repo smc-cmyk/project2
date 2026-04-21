@@ -33,7 +33,8 @@ public class Instructions {
         //Back button
         back = new Button("Return");
 
-        SceneFactory factory = new SceneFactory();
+        Database db = new Database();
+        SceneFactory factory = new SceneFactory(db);
         back.setOnAction(e ->
             stage.setScene(factory.create(SceneType.MAIN_MENU, stage))
         );

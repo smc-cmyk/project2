@@ -28,40 +28,46 @@ class LoginTest {
   }
 
   @Test
-  void testEnter() {
-    Scene scene = Login.buildLogin(new Stage());
-    VBox root = (VBox) scene.getRoot();
-    boolean exists = false;
+  void testEnter() throws Exception {
+    final boolean[] exists = {false};
 
-    for (Node node : root.getChildren()) {
-      if (node instanceof Button button) {
-        if (button.getText().equals("Enter")) {
-          exists = true;
+    Platform.runLater(() -> {
+      Scene scene = Login.buildLogin(new Stage(), db);
+      VBox root = (VBox) scene.getRoot();
+
+      for (Node node : root.getChildren()) {
+        if (node instanceof Button button &&
+            button.getText().equals("Enter")) {
+          exists[0] = true;
           break;
         }
       }
-    }
 
-    assertTrue(exists);
+      assertTrue(exists[0]);
+    });
+
+    Thread.sleep(200);
   }
 
   @Test
-  void testRegister() {
-    Scene scene = Login.buildLogin(new Stage());
-    VBox root = (VBox) scene.getRoot();
+  void testRegister() throws Exception {
+    final boolean[] exists = {false};
 
-    boolean exists = false;
+    Platform.runLater(() -> {
+      Scene scene = Login.buildLogin(new Stage(), db);
+      VBox root = (VBox) scene.getRoot();
 
-    for (Node node : root.getChildren()) {
-      if (node instanceof Button button) {
-        if (button.getText().equals("Register")) {
-          exists = true;
-          break;
+      for (Node node : root.getChildren()) {
+        if (node instanceof Button button) {
+          if (button.getText().equals("Register")) {
+            exists[0] = true;
+          }
         }
       }
-    }
+    });
 
-    assertTrue(exists);
+    Thread.sleep(500);
+    assertTrue(exists[0]);
   }
 
   @Test

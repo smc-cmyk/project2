@@ -19,7 +19,8 @@ public class Main extends Application {
    */
   @Override
   public void start(Stage stage) {
-    SceneFactory factory = new SceneFactory();
+    Database db = new Database();
+    SceneFactory factory = new SceneFactory(db);
     stage.setScene(factory.create(SceneType.LOGIN, stage));
     stage.setTitle("Login");
     stage.show();

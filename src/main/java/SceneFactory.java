@@ -9,11 +9,16 @@ import javafx.stage.Stage;
  * @since 4/14/26
  **/
 public class SceneFactory {
+    private final Database db;
+
+    public SceneFactory(Database db) {
+      this.db = db;
+    }
 
     public Scene create (SceneType sceneType, Stage stage) {
         switch(sceneType) {
            case LOGIN:
-                return Login.buildLogin(stage);
+                return Login.buildLogin(stage, db);
             case MAIN_MENU:
                 return MainMenu.buildMenu(stage);
 //            case EXCHANGE_RATE_HISTORY:
