@@ -27,7 +27,7 @@ public class SceneFactory {
 //            case US_TO_:
 //                return UStoScene.create(stage);
             case INSTRUCTIONS:
-                return Instructions.create(stage);
+                return InstructionsScene.create(stage);
 //            case LOGOUT:
 //                return LogoutScene.create(stage);
 
