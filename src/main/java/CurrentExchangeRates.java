@@ -31,6 +31,14 @@ public class CurrentExchangeRates {
     //public void currToday(String curr, Double amount) {
         //this.curr =;
     //}
+
+    /**
+     *
+     * Create a scene containing a TableView of historical exchange rates.
+     * For USD to X Currency: CAD, Yen, Yuan, Pound, and Euro.
+     * @param stage
+     * @return scene
+     */
     public static Scene create (Stage stage) {
         SceneFactory factory = new SceneFactory();
         stage.setTitle(title + " - " + timestamp);
@@ -52,8 +60,9 @@ public class CurrentExchangeRates {
         });
 
         //TODO: Implement TableView of data
+        //Create new TableView
         TableView<Object> currentExchange = new TableView<>();
-
+        //Convert data into ObservableList compatible with TableView
         ObservableList<Object> data = FXCollections.observableArrayList();
 
         TableColumn<Object, String> dateCol = new TableColumn<>("CURRENCY");
