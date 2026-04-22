@@ -1,3 +1,5 @@
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -10,6 +12,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.Currency;
 
 /**
  *
@@ -28,9 +32,19 @@ public class CurrentExchangeRates {
     private static Button returnButton;
 
     //Object for Current Currency Conversion Rates
-    //public void currToday(String curr, Double amount) {
-        //this.curr =;
-    //}
+    private final SimpleStringProperty currency;
+    private final SimpleDoubleProperty exchange;
+
+    public CurrentExchangeRates(String curr, double exch) {
+        this.currency = new SimpleStringProperty(curr);
+        this.exchange = new SimpleDoubleProperty(exch);
+    }
+    public String getCurrency() {
+        return currency.get();
+    }
+    public Double getExchange() {
+        return  exchange.get();
+    }
 
     /**
      *
@@ -56,20 +70,28 @@ public class CurrentExchangeRates {
 
         //Return to main menu
         returnButton.setOnAction(e -> {
-            stage.setScene(factory.create(SceneType.MAIN_MENU,stage));
+            stage.setScene(SceneFactory.create(SceneType.MAIN_MENU,stage));
         });
 
         //TODO: Implement TableView of data
         //Create new TableView
-        TableView<Object> currentExchange = new TableView<>();
-        //Convert data into ObservableList compatible with TableView
-        ObservableList<Object> data = FXCollections.observableArrayList();
+        TableView<CurrentExchangeRates> currentExchange = new TableView<>();
+        //
+        TableColumn<CurrentExchangeRates, String> currColumn = new TableColumn<>("Currency");
+        currColumn.setCellValueFactory(new PropertyValueFactory<>("currency"));
+        TableColumn<CurrentExchangeRates, String> exchangeColumn = new TableColumn<>("Exchange");
+        exchangeColumn.setCellValueFactory(new PropertyValueFactory<>("exchange"));
 
-        TableColumn<Object, String> dateCol = new TableColumn<>("CURRENCY");
-        dateCol.setCellValueFactory(new PropertyValueFactory<>("currency"));
-        TableColumn<Object, String> exchangeRateCol = new TableColumn<>("1 USD TO FOREIGN CURRENCY");
-        exchangeRateCol.setCellValueFactory(new PropertyValueFactory<>("exchangeRate"));
-        currentExchange.getColumns().addAll(dateCol, exchangeRateCol);
+        //Create observable list with usdToCurr variables
+        ObservableList<CurrentExchangeRates> data = FXCollections.observableArrayList(
+                new CurrentExchangeRates("EURO", CurrencyConstants.usdToEuro),
+                new CurrentExchangeRates("CAD", CurrencyConstants.usdToCad),
+                new CurrentExchangeRates("YEN", CurrencyConstants.usdToYen),
+                new CurrentExchangeRates("POUND", CurrencyConstants.usdToPound),
+                new CurrentExchangeRates("YUAN", CurrencyConstants.usdToYuan)
+        );
+
+        currentExchange.setItems(data);
 
         stage.setScene(scene);
         stage.show();
