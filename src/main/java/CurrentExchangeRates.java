@@ -13,8 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.util.Currency;
-
 /**
  *
  * Displays currency exchange rates along with their date of retrieval.
@@ -27,9 +25,6 @@ import java.util.Currency;
 public class CurrentExchangeRates {
     private static final String title = "Current Exchange Rates";
     private static final String timestamp = CurrencyConstants.dateOfRetrieval;
-    private static Label headerLabel;
-    private static Label dateLabel;
-    private static Button returnButton;
 
     //Object for Current Currency Conversion Rates
     private final SimpleStringProperty currency;
@@ -50,17 +45,16 @@ public class CurrentExchangeRates {
      *
      * Create a scene containing a TableView of historical exchange rates.
      * For USD to X Currency: CAD, Yen, Yuan, Pound, and Euro.
-     * @param stage
      * @return scene
      */
     public static Scene create (Stage stage) {
-        SceneFactory factory = new SceneFactory();
+        SceneFactory SceneFactory = new SceneFactory();
         stage.setTitle(title + " - " + timestamp);
 
-        headerLabel = new Label(title);
-        dateLabel = new Label(timestamp);
+        Label headerLabel = new Label(title);
+        Label dateLabel = new Label(timestamp);
 
-        returnButton = new Button("Return to Main Menu");
+        Button returnButton = new Button("Return to Main Menu");
 
         VBox root = new VBox(12, headerLabel, dateLabel, returnButton);
         root.setAlignment(Pos.CENTER);
@@ -73,10 +67,10 @@ public class CurrentExchangeRates {
             stage.setScene(SceneFactory.create(SceneType.MAIN_MENU,stage));
         });
 
-        //TODO: Implement TableView of data
+        //Implement TableView of data
         //Create new TableView
         TableView<CurrentExchangeRates> currentExchange = new TableView<>();
-        //
+
         TableColumn<CurrentExchangeRates, String> currColumn = new TableColumn<>("Currency");
         currColumn.setCellValueFactory(new PropertyValueFactory<>("currency"));
         TableColumn<CurrentExchangeRates, String> exchangeColumn = new TableColumn<>("Exchange");
