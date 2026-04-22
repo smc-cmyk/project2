@@ -11,6 +11,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
+
   /**
    * Called by the JavaFX runtime after the application is initialized.
    * Build your scene graph here and show the primary Stage (window).
@@ -19,7 +20,10 @@ public class Main extends Application {
    */
   @Override
   public void start(Stage stage) {
-
+    SceneFactory factory = new SceneFactory();
+    stage.setScene(factory.create(SceneType.LOGIN, stage));
+    stage.setTitle("Login");
+    stage.show();
   }
 
   /**

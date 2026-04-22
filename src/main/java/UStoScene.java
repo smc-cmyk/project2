@@ -14,6 +14,7 @@ import javafx.scene.Parent;
  **/
 public class UStoScene {
   public static Scene create(Stage stage) {
+<<<<<<< nettra/login-test-2
     try {
       Parent root = FXMLLoader.load(
           Objects.requireNonNull(
@@ -28,3 +29,19 @@ public class UStoScene {
       return new Scene(new Label("Error loading scene"), 400, 350);
     }
   }}
+=======
+      try {
+        Parent root = FXMLLoader.load(
+            Objects.requireNonNull(
+                UStoScene.class.getResource("/UStoScene.fxml")
+            )
+        );
+
+        return new Scene(root, 400, 350);
+
+      } catch (Exception e) {
+        e.printStackTrace();
+        return new Scene(new Label("Error loading scene"), 400, 350);
+      }
+}}
+>>>>>>> main

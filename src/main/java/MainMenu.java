@@ -12,16 +12,16 @@ import javafx.stage.Stage;
  * @version 0.1.0
  * @since 4/17/2026
  */
-public interface MainMenu {
-  int SCENE_WIDTH = 400;
-  int SCENE_HEIGHT = 300;
-  String label = "Main Menu";
-  String converter = "USD Converter";
-  String instructions = "Instructions";
-  String rates = "Exchange Rates";
-  String ratesTable = "Exchange Rates History (Table)";
-  String ratesGraph = "Exchange Rates History (Graph)";
-  String logout = "Logout";
+public class MainMenu {
+  static int SCENE_WIDTH = 400;
+  static int SCENE_HEIGHT = 300;
+  static String label = "Main Menu";
+  static String converter = "USD Converter";
+  static String instructions = "Instructions";
+  static String rates = "Exchange Rates";
+  static String ratesTable = "Exchange Rates History (Table)";
+  static String ratesGraph = "Exchange Rates History (Graph)";
+  static String logout = "Logout";
 
   static Scene buildMenu(Stage stage) {
     SceneFactory factory = new SceneFactory();

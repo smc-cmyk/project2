@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
- * Interface for Login scene
+ * Class for Login scene
  *
  * @author Nettra Leandre
  * @version 0.1.0

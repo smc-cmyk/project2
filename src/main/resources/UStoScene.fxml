@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+  xmlns:fx="http://javafx.com/fxml"
+  fx:controller="UStoSceneController"
+  spacing="20"
+  alignment="CENTER">
+
+  <Label text="USD Converter"/>
+
+  <TextField fx:id="USDinput"/>
+  <Label fx:id="result"/>
+
+  <HBox spacing="20" alignment="CENTER">
+    <Button text="CAD" onAction="#convertToCAD"/>
+    <Button text="EUR" onAction="#convertToEUR"/>
+    <Button text="CNY" onAction="#convertToCNY"/>
+  </HBox>
+
+  <HBox spacing="20" alignment="CENTER">
+    <Button text="JPY" onAction="#convertToJPY"/>
+<!--    <Button text="AUD" onAction="#convertToAUD"/>-->
+<!--    <Button text="CHF" onAction="#convertToCHF"/>-->
+  </HBox>
+
+<!--  <HBox spacing="20" alignment="CENTER">-->
+<!--    <Button text="CNH" onAction="#convertToCNH"/>-->
+<!--    <Button text="HKD" onAction="#convertToHKD"/>-->
+<!--    <Button text="NZD" onAction="#convertToNZD"/>-->
+<!--  </HBox>-->
+
+  <fx:include source="ReturnButton.fxml"/>
+
+</VBox>
