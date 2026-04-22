@@ -10,12 +10,12 @@ import javafx.stage.Stage;
  **/
 public class SceneFactory {
 
-    public Scene create (SceneType sceneType, Stage stage) {
-        switch(sceneType) {
-           case LOGIN:
-                return Login.buildLogin(stage);
-            case MAIN_MENU:
-                return MainMenu.buildMenu(stage);
+  public Scene create (SceneType sceneType, Stage stage) {
+    switch(sceneType) {
+      case LOGIN:
+        return Login.buildLogin(stage);
+      case MAIN_MENU:
+        return MainMenu.buildMenu(stage);
 //            case EXCHANGE_RATE_HISTORY:
 //                return ExchangeRateHistoryScene.create(stage);
 //            case TABLE_OF_EXCHANGE_RATE_HISTORY:
@@ -26,16 +26,16 @@ public class SceneFactory {
 //                return TableOfExchangeHistoryWithTimestampsScene.create(stage);
 //            case US_TO_:
 //                return UStoScene.create(stage);
-            case INSTRUCTIONS:
-                return Instructions.create(stage);
+      case INSTRUCTIONS:
+        return InstructionsScene.create(stage);
 //            case LOGOUT:
 //                return LogoutScene.create(stage);
 
-            default:
-                throw new IllegalArgumentException("Unknown scene type: " + sceneType );
-        }
-
+      default:
+        throw new IllegalArgumentException("Unknown scene type: " + sceneType );
     }
+
+  }
 }
 
 
