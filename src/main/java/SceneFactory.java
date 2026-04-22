@@ -24,12 +24,12 @@ public class SceneFactory {
 //                return GraphOfExchangeHistoryScene.create(stage);
 //            case TABLE_OF_EXCHANGE_RATE_HISTORY_WITH_TIMESTAMPS:
 //                return TableOfExchangeHistoryWithTimestampsScene.create(stage);
-//            case US_TO_:
-//                return UStoScene.create(stage);
+            case US_TO_:
+                return UStoScene.create(stage);
             case INSTRUCTIONS:
                 return InstructionsScene.create(stage);
-//            case LOGOUT:
-//                return LogoutScene.create(stage);
+            case LOGOUT:
+                return LogoutScene.create(stage);
 
             default:
                 throw new IllegalArgumentException("Unknown scene type: " + sceneType );
