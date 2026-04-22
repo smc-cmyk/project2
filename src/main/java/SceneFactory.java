@@ -10,7 +10,7 @@ import javafx.stage.Stage;
  **/
 public class SceneFactory {
 
-    public Scene create (SceneType sceneType, Stage stage) {
+    public  static Scene create (SceneType sceneType, Stage stage) {
         switch(sceneType) {
            case LOGIN:
                 return Login.buildLogin(stage);
