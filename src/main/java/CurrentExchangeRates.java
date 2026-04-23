@@ -25,16 +25,12 @@ import javafx.stage.Stage;
 
 public class CurrentExchangeRates {
     private static final String title = "Current Exchange Rates at " + CurrencyConstants.dateOfRetrieval;
-    private static final String currTable = """
-            
-            +-------------+---------------------------------+--------------------------------+----------------------------------+---------------------------------+--------------------------------+
-            |      _      |              Euro               |              Yen               |              Pound               |              Yuan               |              CAD               |
-            +-------------+---------------------------------+--------------------------------+----------------------------------+---------------------------------+--------------------------------+
-            | 1 USD is..  | + CurrencyConstants.usdToEuro + | + CurrencyConstants.usdToYen + | + CurrencyConstants.usdToPound + | + CurrencyConstants.usdToYuan + | + CurrencyConstants.usdToCad + |
-            +-------------+---------------------------------+--------------------------------+----------------------------------+---------------------------------+--------------------------------+
-            
-            """;
-
+    private static final String currTable = "\n" +
+            "+-------------+------+--------+-------+------+------+\n" +
+            "|      -      | Euro |  Yen   | Pound | Yuan | CAD  |\n" +
+            "+-------------+------+--------+-------+------+------+\n" +
+            "| 1 USD is..  | "+ CurrencyConstants.usdToEuro +" | "+ CurrencyConstants.usdToYen +" | "+ CurrencyConstants.usdToPound +" | "+ CurrencyConstants.usdToYuan +" | "+ CurrencyConstants.usdToCad +" |\n" +
+            "+-------------+------+--------+-------+------+------+";
 /*    //Object for Current Currency Conversion Rates
     private final SimpleStringProperty currency;
     private final SimpleDoubleProperty exchange;

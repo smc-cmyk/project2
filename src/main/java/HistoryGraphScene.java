@@ -1,4 +1,6 @@
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.jfree.chart.ChartFactory;
@@ -24,9 +26,9 @@ public class HistoryGraphScene {
     private static JFreeChart createChart(XYDataset dataset) {
 
         JFreeChart chart = ChartFactory.createTimeSeriesChart(
-                "Historical Exchange Rates: USD To Currency", //title
+                "Historical Exchange Rates", //title
                 null, //x-axis
-                "Year", //y-axis
+                "1 USD is equal to...", //y-axis
                 dataset);
 
                 String fontName = "Monospaced";
@@ -77,7 +79,7 @@ public class HistoryGraphScene {
         sYen.add(new Year(2000), 1.078);
         sYen.add(new Year(2010), 0.8777);
         sYen.add(new Year(2020), 1.0675);
-        sYen.add(new Year(2026), CurrencyConstants.usdToYen);
+        sYen.add(new Year(2026), (CurrencyConstants.usdToYen/100));
 
         TimeSeries sPound = new TimeSeries("USD to Pound");
         sPound.add(new Year(1970), 0.417);
@@ -124,7 +126,15 @@ public class HistoryGraphScene {
         stage.setScene(new Scene(viewer));
         stage.setTitle("Historical Exchange Rates");
 
-        VBox vBox = new VBox(10,viewer);
+        javafx.scene.control.Button returnButton = new Button("Return to Main Menu");
+        //Return to main menu
+        returnButton.setOnAction(e -> {
+            stage.setScene(SceneFactory.create(SceneType.MAIN_MENU,stage));
+        });
+
+        VBox vBox = new VBox(10,viewer, returnButton);
+        vBox.setAlignment(Pos.CENTER);
+
         return new Scene(vBox, 590, 300);
     }
 }
