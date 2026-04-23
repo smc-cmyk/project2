@@ -60,7 +60,7 @@ public class CurrentExchangeRates {
         Label tableLabel = new Label(currTable);
         tableLabel.setFont(Font.font("Monospaced", 12));
 
-        Button returnButton = new Button("Return to Main Menu");
+        Button returnButton = new Button("Return");
 
         VBox root = new VBox(12, headerLabel, tableLabel, returnButton);
         root.setAlignment(Pos.CENTER);

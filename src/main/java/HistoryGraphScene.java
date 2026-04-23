@@ -67,6 +67,7 @@ public class HistoryGraphScene {
         sEuro.add(new Year(1970), 0);
         sEuro.add(new Year(1980), 0);
         sEuro.add(new Year(1990), 0);
+        sEuro.add(new Year(1998), 0);
         sEuro.add(new Year(2000), 1.086);
         sEuro.add(new Year(2010), 0.755);
         sEuro.add(new Year(2020), 0.877);
@@ -126,7 +127,7 @@ public class HistoryGraphScene {
         stage.setScene(new Scene(viewer));
         stage.setTitle("Historical Exchange Rates");
 
-        javafx.scene.control.Button returnButton = new Button("Return to Main Menu");
+        javafx.scene.control.Button returnButton = new Button("Return");
         //Return to main menu
         returnButton.setOnAction(e -> {
             stage.setScene(SceneFactory.create(SceneType.MAIN_MENU,stage));
