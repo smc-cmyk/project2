@@ -1,3 +1,6 @@
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.block.BlockBorder;
@@ -9,6 +12,7 @@ import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.Year;
 import org.jfree.data.xy.XYDataset;
+import org.jfree.chart.fx.ChartViewer;
 
 import java.awt.*;
 
@@ -39,7 +43,7 @@ public class HistoryGraphScene {
                 chart.getLegend().setHorizontalAlignment(HorizontalAlignment.CENTER);
                 XYItemRenderer renderer = plot.getRenderer();
 
-                if (renderer instanceof XYItemRenderer) {
+                if (renderer != null) {
                     XYLineAndShapeRenderer renderer2 = (XYLineAndShapeRenderer) renderer;
                     renderer2.setDefaultShapesVisible(true);
                     renderer2.setDrawSeriesLineAsPath(true);
@@ -56,7 +60,7 @@ public class HistoryGraphScene {
 
     }
 
-    private static XYDataset dataset() {
+    private static XYDataset createDataset() {
         TimeSeries sEuro = new TimeSeries("USD to Euro");
         sEuro.add(new Year(1970), 0);
         sEuro.add(new Year(1980), 0);
@@ -104,7 +108,23 @@ public class HistoryGraphScene {
 
         TimeSeriesCollection dataset = new TimeSeriesCollection();
         dataset.addSeries(sEuro);
+        dataset.addSeries(sYen);
+        dataset.addSeries(sPound);
+        dataset.addSeries(sYuan);
+        dataset.addSeries(sCad);
         return dataset;
 
+    }
+
+
+    public static Scene create(Stage stage) {
+        XYDataset dataset = createDataset();
+        JFreeChart chart = createChart(dataset);
+        ChartViewer viewer = new ChartViewer(chart);
+        stage.setScene(new Scene(viewer));
+        stage.setTitle("Historical Exchange Rates");
+
+        VBox vBox = new VBox(10,viewer);
+        return new Scene(vBox, 590, 300);
     }
 }
