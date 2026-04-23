@@ -1,4 +1,3 @@
-import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -53,57 +52,36 @@ public class HistoryTableScene{
         return exchange1970.get();
     }
 
-    public SimpleDoubleProperty exchange1970Property() {
-        return exchange1970;
-    }
 
     public double getExchange1980() {
         return exchange1980.get();
     }
 
-    public SimpleDoubleProperty exchange1980Property() {
-        return exchange1980;
-    }
 
     public double getExchange1990() {
         return exchange1990.get();
     }
 
-    public SimpleDoubleProperty exchange1990Property() {
-        return exchange1990;
-    }
 
     public double getExchange2000() {
         return exchange2000.get();
     }
 
-    public SimpleDoubleProperty exchange2000Property() {
-        return exchange2000;
-    }
 
     public double getExchange2010() {
         return exchange2010.get();
     }
 
-    public SimpleDoubleProperty exchange2010Property() {
-        return exchange2010;
-    }
 
     public double getExchange2020() {
         return exchange2020.get();
     }
 
-    public SimpleDoubleProperty exchange2020Property() {
-        return exchange2020;
-    }
 
     public double getExchange2026() {
         return exchange2026.get();
     }
 
-    public SimpleDoubleProperty exchange2026Property() {
-        return exchange2026;
-    }
 
     /**
      *
