@@ -21,6 +21,7 @@ public class InstructionsScene {
           "Enter desired USD amount to convert, then click desired currency to convert to \n\n" +
           "Click 'Return' to go to the previous scene";
 
+
   // Back button String
   private static final String back = "Return";
 

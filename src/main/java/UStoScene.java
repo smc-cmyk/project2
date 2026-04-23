@@ -13,19 +13,21 @@ import javafx.scene.Parent;
  * @since 4/15/26
  **/
 public class UStoScene {
-  public static Scene create(Stage stage) {
-    try {
-      Parent root = FXMLLoader.load(
-          Objects.requireNonNull(
-              UStoScene.class.getResource("/UStoScene.fxml")
-          )
-      );
+    public static Scene create(Stage stage) {
+        stage.setTitle("USD Converter");
 
-      return new Scene(root, 400, 350);
+        try {
+            Parent root = FXMLLoader.load(
+                    Objects.requireNonNull(
+                            UStoScene.class.getResource("/UStoScene.fxml")
+                    )
+            );
 
-    } catch (Exception e) {
-      e.printStackTrace();
-      return new Scene(new Label("Error loading scene"), 400, 350);
+            return new Scene(root, 400, 300);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Scene(new Label("Error loading scene"), 400, 350);
+        }
     }
-  }}
-
+}
