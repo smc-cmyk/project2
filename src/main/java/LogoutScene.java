@@ -30,8 +30,8 @@ public class LogoutScene {
   static Button noButton;
 
   public static Scene create(Stage stage) {
-
-    SceneFactory factory = new SceneFactory();
+    Database db = new Database();
+    SceneFactory factory = new SceneFactory(db);
 
     // Initialization
     logoutLabel = new Label(logout);

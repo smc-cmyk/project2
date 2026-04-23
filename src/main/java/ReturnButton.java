@@ -14,7 +14,8 @@ public class ReturnButton {
     private void handleReturn(javafx.event.ActionEvent event) {
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-      SceneFactory factory = new SceneFactory();
+      Database db = new Database();
+      SceneFactory factory = new SceneFactory(db);
       stage.setScene(factory.create(SceneType.MAIN_MENU, stage));
     }
 }

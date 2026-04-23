@@ -19,8 +19,7 @@ import javafx.stage.Stage;
 public class Login {
   static int SCENE_WIDTH = 400;
   static int SCENE_HEIGHT = 300;
-  static String title = "Login";
-  static String enter = "Enter";
+  static String login = "Login";
   static String register = "Register";
   static String username = "Username";
   static String password = "Password";
@@ -29,31 +28,32 @@ public class Login {
   static TextField usernameInput = new TextField();
   static PasswordField passwordInput = new PasswordField();
 
-  static Scene buildLogin(Stage stage) {
-    SceneFactory factory = new SceneFactory();
-    Database db = new Database();
-    stage.setTitle(title);
+  static Scene buildLogin(Stage stage, Database db) {
+    SceneFactory factory = new SceneFactory(db);
+    stage.setTitle(login);
     Label usernameLabel = new Label(username);
     Label passwordLabel = new Label(password);
     Label messageLabel = new Label();
     usernameInput.setPromptText(usernamePrompt);
     passwordInput.setPromptText(passwordPrompt);
-    Button enterButton = new Button(enter);
+    Button loginButton = new Button(login);
     Button registerButton = new Button(register);
 
-    enterButton.setOnAction(e -> {
+    loginButton.setOnAction(e -> {
       String user = usernameInput.getText();
       String pw = passwordInput.getText();
 
       if (user.isEmpty() || pw.isEmpty()) {
-        messageLabel.setText("Fields cannot be empty");
+        messageLabel.setText("Fields cannot be empty.");
         return;
       }
 
       if (db.checkUser(user, pw)) {
         stage.setScene(factory.create(SceneType.MAIN_MENU, stage));
+        usernameInput.clear();
+        passwordInput.clear();
       } else {
-        messageLabel.setText("Invalid login");
+        messageLabel.setText("Invalid login.");
       }
     });
 
@@ -62,23 +62,25 @@ public class Login {
       String pw = passwordInput.getText().trim();
 
       if (user.isEmpty() || pw.isEmpty()) {
-        messageLabel.setText("Input cannot be empty");
+        messageLabel.setText("Fields cannot be empty.");
         return;
       }
 
-      boolean success = db.createUser(user, pw); // must return boolean
+      boolean success = db.createUser(user, pw);
 
       if (success) {
         messageLabel.setText("Registration successful.");
+        usernameInput.clear();
+        passwordInput.clear();
       } else {
-        messageLabel.setText("Username already exists");
+        messageLabel.setText("Username already exists.");
       }
     });
 
     VBox layout = new VBox(12,
         usernameLabel, usernameInput,
         passwordLabel, passwordInput,
-        enterButton, registerButton,
+        loginButton, registerButton,
         messageLabel
     );
 

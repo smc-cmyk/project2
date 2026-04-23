@@ -9,21 +9,26 @@ import javafx.stage.Stage;
  * @since 4/14/26
  **/
 public class SceneFactory {
+    private final Database db;
 
-    public static Scene create(SceneType sceneType, Stage stage) {
+    public SceneFactory(Database db) {
+        this.db = db;
+    }
+
+    public Scene create(SceneType sceneType, Stage stage) {
         switch (sceneType) {
             case LOGIN:
-                return Login.buildLogin(stage);
+                return Login.buildLogin(stage, db);
             case MAIN_MENU:
                 return MainMenu.buildMenu(stage);
-//            case EXCHANGE_RATE_HISTORY:
-//                return ExchangeRateHistoryScene.create(stage);
-      case TABLE_OF_EXCHANGE_RATE_HISTORY:
-        return HistoryTableScene.create(stage);
-//            case GRAPH_OF_EXCHANGE_RATE_HISTORY:
-//                return GraphOfExchangeHistoryScene.create(stage);
+            //case EXCHANGE_RATE_HISTORY:
+            //return ExchangeRateHistoryScene.create(stage);
+            case TABLE_OF_EXCHANGE_RATE_HISTORY:
+                return HistoryTableScene.create(stage);
+            case GRAPH_OF_EXCHANGE_RATE_HISTORY:
+                return HistoryGraphScene.create(stage);
             case USD_CONVERTER_RESULT:
-                  return USDConverterResults.create(stage);
+                return USDConverterResults.create(stage);
             case US_TO_:
                 return UStoScene.create(stage);
             case INSTRUCTIONS:

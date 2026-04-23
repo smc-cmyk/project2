@@ -30,8 +30,8 @@ public class InstructionsScene {
   private static Button backButton;
 
   public static Scene create(Stage stage) {
-
-    SceneFactory factory = new SceneFactory();
+    Database db = new Database();
+    SceneFactory factory = new SceneFactory(db);
 
     titleLabel = new Label(title);
     instructionsLabel = new Label(instructions);
