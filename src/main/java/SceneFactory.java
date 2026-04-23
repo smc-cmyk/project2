@@ -10,18 +10,18 @@ import javafx.stage.Stage;
  **/
 public class SceneFactory {
 
-  public Scene create (SceneType sceneType, Stage stage) {
+  public static Scene create(SceneType sceneType, Stage stage) {
     switch(sceneType) {
       case LOGIN:
         return Login.buildLogin(stage);
       case MAIN_MENU:
         return MainMenu.buildMenu(stage);
-//            case EXCHANGE_RATE_HISTORY:
-//                return ExchangeRateHistoryScene.create(stage);
+            case EXCHANGE_RATE_HISTORY:
+                return CurrentExchangeRates.create(stage);
       case TABLE_OF_EXCHANGE_RATE_HISTORY:
         return HistoryTableScene.create(stage);
-//            case GRAPH_OF_EXCHANGE_RATE_HISTORY:
-//                return GraphOfExchangeHistoryScene.create(stage);
+            case GRAPH_OF_EXCHANGE_RATE_HISTORY:
+               return HistoryGraphScene.create(stage);
 //            case TABLE_OF_EXCHANGE_RATE_HISTORY_WITH_TIMESTAMPS:
 //                return TableOfExchangeHistoryWithTimestampsScene.create(stage);
       case US_TO_:
