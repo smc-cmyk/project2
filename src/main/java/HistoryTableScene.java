@@ -37,7 +37,7 @@ public class HistoryTableScene {
 
         Label titleLabel = new Label(title);
         Label tableLabel = new Label(table);
-        Label timeLabel = new Label(CurrencyConstants.dateOfRetrieval);
+        Label timeLabel = new Label("Data retrieved at: " + CurrencyConstants.dateOfRetrieval);
         tableLabel.setFont(Font.font("Monospaced", 12));
         Button backButton = new Button("Return");
 
@@ -48,6 +48,7 @@ public class HistoryTableScene {
         VBox vBox = new VBox(10, titleLabel, tableLabel, timeLabel, backButton);
         vBox.setAlignment(Pos.CENTER);
 
+        //return newly created scene
         return new Scene(vBox, 590, 300);
     }
 }
