@@ -11,7 +11,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -25,12 +24,6 @@ import javafx.stage.Stage;
 
 public class CurrentExchangeRates {
     private static final String title = "Current Exchange Rates at " + CurrencyConstants.dateOfRetrieval;
-/*    private static final String currTable = "\n" +
-            "+-------------+------+--------+-------+------+------+\n" +
-            "|      -      | Euro |  Yen   | Pound | Yuan | CAD  |\n" +
-            "+-------------+------+--------+-------+------+------+\n" +
-            "| 1 USD is..  | "+ CurrencyConstants.usdToEuro +" | "+ CurrencyConstants.usdToYen +" | "+ CurrencyConstants.usdToPound +" | "+ CurrencyConstants.usdToYuan +" | "+ CurrencyConstants.usdToCad +" |\n" +
-            "+-------------+------+--------+-------+------+------+";*/
     //Object for Current Currency Conversion Rates
     private final SimpleStringProperty currency;
     private final SimpleDoubleProperty exchange;
@@ -85,12 +78,6 @@ public class CurrentExchangeRates {
         });
 
         //Implement TableView of data
-
-
-//        TableColumn<CurrentExchangeRates, String> currColumn = new TableColumn<>("Currency");
-//        currColumn.setCellValueFactory(new PropertyValueFactory<>("currency"));
-//        TableColumn<CurrentExchangeRates, String> exchangeColumn = new TableColumn<>("Exchange");
-//        exchangeColumn.setCellValueFactory(new PropertyValueFactory<>("exchange"));
         TableColumn exchangeCol = new TableColumn("1 USD is...");
         exchangeCol.setCellValueFactory(new PropertyValueFactory<CurrentExchangeRates, String>("exchange"));
         TableColumn currCol = new TableColumn("");
