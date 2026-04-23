@@ -29,7 +29,7 @@ public class LogoutScene {
   static Button yesButton;
   static Button noButton;
 
-  public Scene create(Stage stage) {
+  public static Scene create(Stage stage) {
     Database db = new Database();
     SceneFactory factory = new SceneFactory(db);
 

@@ -33,8 +33,8 @@ public class SceneFactory {
                 return UStoScene.create(stage);
             case INSTRUCTIONS:
                 return Instructions.create(stage);
-//            case LOGOUT:
-//                return LogoutScene.create(stage);
+            case LOGOUT:
+                return LogoutScene.create(stage);
 
             default:
                 throw new IllegalArgumentException("Unknown scene type: " + sceneType );
