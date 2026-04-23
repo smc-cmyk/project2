@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -61,6 +62,7 @@ public class CurrentExchangeRates {
 
         Label headerLabel = new Label(title);
         Label tableLabel = new Label(currTable);
+        tableLabel.setFont(Font.font("Monospaced", 12));
 
         Button returnButton = new Button("Return to Main Menu");
 
