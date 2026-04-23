@@ -17,6 +17,15 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.chart.fx.ChartViewer;
 
 import java.awt.*;
+/**
+ *
+ * Creates a time series chart of historical exchange rates.
+ * This used jFree-chart 3rd party lib.
+ *
+ * @author Sean McFerran
+ * @version 0.1.0
+ * @since 04/14/2026
+ */
 
 public class HistoryGraphScene {
     /**

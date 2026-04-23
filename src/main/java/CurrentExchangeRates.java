@@ -11,7 +11,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -25,17 +24,11 @@ import javafx.stage.Stage;
 
 public class CurrentExchangeRates {
     private static final String title = "Current Exchange Rates at " + CurrencyConstants.dateOfRetrieval;
-    private static final String currTable = "\n" +
-            "+-------------+------+--------+-------+------+------+\n" +
-            "|      -      | Euro |  Yen   | Pound | Yuan | CAD  |\n" +
-            "+-------------+------+--------+-------+------+------+\n" +
-            "| 1 USD is..  | "+ CurrencyConstants.usdToEuro +" | "+ CurrencyConstants.usdToYen +" | "+ CurrencyConstants.usdToPound +" | "+ CurrencyConstants.usdToYuan +" | "+ CurrencyConstants.usdToCad +" |\n" +
-            "+-------------+------+--------+-------+------+------+";
-/*    //Object for Current Currency Conversion Rates
+    //Object for Current Currency Conversion Rates
     private final SimpleStringProperty currency;
     private final SimpleDoubleProperty exchange;
 
-    public CurrentExchangeRates(String curr, double exch) {
+    private CurrentExchangeRates(String curr, double exch) {
         this.currency = new SimpleStringProperty(curr);
         this.exchange = new SimpleDoubleProperty(exch);
     }
@@ -44,7 +37,7 @@ public class CurrentExchangeRates {
     }
     public Double getExchange() {
         return  exchange.get();
-    }*/
+    }
 
     /**
      *
@@ -55,15 +48,25 @@ public class CurrentExchangeRates {
     public static Scene create (Stage stage) {
         Database db = new Database();
         SceneFactory SceneFactory = new SceneFactory(db);
+
+        //Create new TableView
+        TableView<CurrentExchangeRates> currentExchange = new TableView<>();
+        //Create observable list with usdToCurr variables
+        final ObservableList<CurrentExchangeRates> data = FXCollections.observableArrayList(
+                new CurrentExchangeRates("EURO", CurrencyConstants.usdToEuro),
+                new CurrentExchangeRates("CAD", CurrencyConstants.usdToCad),
+                new CurrentExchangeRates("YEN", CurrencyConstants.usdToYen),
+                new CurrentExchangeRates("POUND", CurrencyConstants.usdToPound),
+                new CurrentExchangeRates("YUAN", CurrencyConstants.usdToYuan)
+        );
+
         stage.setTitle(title);
 
         Label headerLabel = new Label(title);
-        Label tableLabel = new Label(currTable);
-        tableLabel.setFont(Font.font("Monospaced", 12));
 
         Button returnButton = new Button("Return");
 
-        VBox root = new VBox(12, headerLabel, tableLabel, returnButton);
+        VBox root = new VBox(12, headerLabel, currentExchange, returnButton);
         root.setAlignment(Pos.CENTER);
         root.setPadding(new Insets(30));
 
@@ -74,25 +77,14 @@ public class CurrentExchangeRates {
             stage.setScene(SceneFactory.create(SceneType.MAIN_MENU,stage));
         });
 
-/*        //Implement TableView of data
-        //Create new TableView
-        TableView<CurrentExchangeRates> currentExchange = new TableView<>();
+        //Implement TableView of data
+        TableColumn exchangeCol = new TableColumn("1 USD is...");
+        exchangeCol.setCellValueFactory(new PropertyValueFactory<CurrentExchangeRates, String>("exchange"));
+        TableColumn currCol = new TableColumn("");
+        currCol.setCellValueFactory(new PropertyValueFactory<CurrentExchangeRates, String>("currency"));
 
-        TableColumn<CurrentExchangeRates, String> currColumn = new TableColumn<>("Currency");
-        currColumn.setCellValueFactory(new PropertyValueFactory<>("currency"));
-        TableColumn<CurrentExchangeRates, String> exchangeColumn = new TableColumn<>("Exchange");
-        exchangeColumn.setCellValueFactory(new PropertyValueFactory<>("exchange"));
-
-        //Create observable list with usdToCurr variables
-        ObservableList<CurrentExchangeRates> data = FXCollections.observableArrayList(
-                new CurrentExchangeRates("EURO", CurrencyConstants.usdToEuro),
-                new CurrentExchangeRates("CAD", CurrencyConstants.usdToCad),
-                new CurrentExchangeRates("YEN", CurrencyConstants.usdToYen),
-                new CurrentExchangeRates("POUND", CurrencyConstants.usdToPound),
-                new CurrentExchangeRates("YUAN", CurrencyConstants.usdToYuan)
-        );
-
-        currentExchange.setItems(data);*/
+        currentExchange.setItems(data);
+        currentExchange.getColumns().addAll(exchangeCol, currCol);
 
         stage.setScene(scene);
         stage.show();
