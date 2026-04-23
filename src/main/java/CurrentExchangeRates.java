@@ -23,10 +23,18 @@ import javafx.stage.Stage;
  */
 
 public class CurrentExchangeRates {
-    private static final String title = "Current Exchange Rates";
-    private static final String timestamp = CurrencyConstants.dateOfRetrieval;
+    private static final String title = "Current Exchange Rates at " + CurrencyConstants.dateOfRetrieval;
+    private static final String currTable = """
+            
+            +-------------+---------------------------------+--------------------------------+----------------------------------+---------------------------------+--------------------------------+
+            |      _      |              Euro               |              Yen               |              Pound               |              Yuan               |              CAD               |
+            +-------------+---------------------------------+--------------------------------+----------------------------------+---------------------------------+--------------------------------+
+            | 1 USD is..  | + CurrencyConstants.usdToEuro + | + CurrencyConstants.usdToYen + | + CurrencyConstants.usdToPound + | + CurrencyConstants.usdToYuan + | + CurrencyConstants.usdToCad + |
+            +-------------+---------------------------------+--------------------------------+----------------------------------+---------------------------------+--------------------------------+
+            
+            """;
 
-    //Object for Current Currency Conversion Rates
+/*    //Object for Current Currency Conversion Rates
     private final SimpleStringProperty currency;
     private final SimpleDoubleProperty exchange;
 
@@ -39,7 +47,7 @@ public class CurrentExchangeRates {
     }
     public Double getExchange() {
         return  exchange.get();
-    }
+    }*/
 
     /**
      *
@@ -49,14 +57,14 @@ public class CurrentExchangeRates {
      */
     public static Scene create (Stage stage) {
         SceneFactory SceneFactory = new SceneFactory();
-        stage.setTitle(title + " - " + timestamp);
+        stage.setTitle(title);
 
         Label headerLabel = new Label(title);
-        Label dateLabel = new Label(timestamp);
+        Label tableLabel = new Label(currTable);
 
         Button returnButton = new Button("Return to Main Menu");
 
-        VBox root = new VBox(12, headerLabel, dateLabel, returnButton);
+        VBox root = new VBox(12, headerLabel, tableLabel, returnButton);
         root.setAlignment(Pos.CENTER);
         root.setPadding(new Insets(30));
 
@@ -67,7 +75,7 @@ public class CurrentExchangeRates {
             stage.setScene(SceneFactory.create(SceneType.MAIN_MENU,stage));
         });
 
-        //Implement TableView of data
+/*        //Implement TableView of data
         //Create new TableView
         TableView<CurrentExchangeRates> currentExchange = new TableView<>();
 
@@ -85,7 +93,7 @@ public class CurrentExchangeRates {
                 new CurrentExchangeRates("YUAN", CurrencyConstants.usdToYuan)
         );
 
-        currentExchange.setItems(data);
+        currentExchange.setItems(data);*/
 
         stage.setScene(scene);
         stage.show();
