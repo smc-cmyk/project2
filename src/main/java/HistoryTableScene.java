@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class HistoryTableScene {
 
-    private static final String title = "Historic Exchange Rates Table";
+    private static final String title = "Historic Exchange Rates Table \n 1 USD is Equal to...";
     //if TableView does not work use this ASCII art table
     private static final String table = "\n" +
             "+-------+-------+--------+-------+-------+-------+--------+--------+\n" +
