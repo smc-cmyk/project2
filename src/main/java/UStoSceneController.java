@@ -1,6 +1,7 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * Controller for UStoScene
@@ -17,35 +18,40 @@ public class UStoSceneController {
 
   @FXML
   private void convertToCAD() {
-    convert(CurrencyConstants.usdToCad, "CAD");
+    handleConversion(CurrencyConstants.usdToCad, "CAD");
   }
 
   @FXML
   private void convertToEUR() {
-    convert(CurrencyConstants.usdToEuro, "EUR");
+    handleConversion(CurrencyConstants.usdToEuro, "EUR");
   }
 
   @FXML
   private void convertToCNY() {
-    convert(CurrencyConstants.usdToYuan, "CNY");
+    handleConversion(CurrencyConstants.usdToYuan, "CNY");
   }
 
   @FXML
   private void convertToJPY() {
-    convert(CurrencyConstants.usdToYen, "JPY");
+    handleConversion(CurrencyConstants.usdToYen, "JPY");
   }
 
-  private void convert(double rate, String currency) {
+  private void handleConversion(double rate, String currency) {
     try {
       double usd = Double.parseDouble(USDinput.getText());
-      double converted = usd * rate;
+      USDConverterResults.convert(usd, rate, currency);
 
-      result.setText(String.format(
-          "%.2f USD = %.2f %s",
-          usd, converted, currency
-      ));
+      Stage stage = (Stage) USDinput.getScene().getWindow();
+      SceneFactory factory = new SceneFactory();
+      stage.setScene(factory.create(SceneType.USD_CONVERTER_RESULT, stage));
+      //double converted = usd * rate;
 
-      result.setStyle("-fx-text-fill: black;");
+      //result.setText(String.format(
+        //  "%.2f USD = %.2f %s",
+          //usd, converted, currency
+      //));
+
+      //result.setStyle("-fx-text-fill: black;");
 
     } catch (NumberFormatException e) {
       result.setText(ERROR_MESSAGE);

@@ -7,13 +7,17 @@
       <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../src/main/resources" type="java-resource" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="25" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: org.xerial:sqlite-jdbc:3.45.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.openjfx:javafx-fxml:linux:22" level="project" />
-    <orderEntry type="library" name="Gradle: org.openjfx:javafx-controls:linux:22" level="project" />
+    <orderEntry type="library" name="Gradle: org.jfree:org.jfree.chart.fx:2.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.jfree:jfreechart:1.5.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-fxml:mac-aarch64:22" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-controls:mac-aarch64:22" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.36" level="project" />
-    <orderEntry type="library" name="Gradle: org.openjfx:javafx-graphics:linux:22" level="project" />
-    <orderEntry type="library" name="Gradle: org.openjfx:javafx-base:linux:22" level="project" />
+    <orderEntry type="library" name="Gradle: org.jfree:org.jfree.fxgraphics2d:2.1.5" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-graphics:mac-aarch64:22" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-swing:mac-aarch64:21.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-base:mac-aarch64:22" level="project" />
   </component>
 </module>
