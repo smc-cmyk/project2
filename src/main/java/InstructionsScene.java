@@ -30,6 +30,7 @@ public class InstructionsScene {
   private static Button backButton;
 
   public static Scene create(Stage stage) {
+    stage.setTitle("App Instructions");
     Database db = new Database();
     SceneFactory factory = new SceneFactory(db);
 

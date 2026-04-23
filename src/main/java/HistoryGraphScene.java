@@ -134,7 +134,7 @@ public class HistoryGraphScene {
         JFreeChart chart = createChart(dataset);
         ChartViewer viewer = new ChartViewer(chart);
         stage.setScene(new Scene(viewer));
-        stage.setTitle("Historical Exchange Rates");
+        stage.setTitle("Exchange Rate History Graph View");
 
         javafx.scene.control.Button returnButton = new Button("Return");
         //Return to main menu

@@ -30,6 +30,7 @@ public class LogoutScene {
   static Button noButton;
 
   public static Scene create(Stage stage) {
+    stage.setTitle("Log out");
     Database db = new Database();
     SceneFactory factory = new SceneFactory(db);
 

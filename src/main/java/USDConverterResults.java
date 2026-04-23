@@ -38,7 +38,9 @@ public class USDConverterResults {
 
     public static Scene create(Stage stage) {
         stage.setTitle("USD Converter Results");
-        SceneFactory sceneFactory = new SceneFactory();
+
+        Database db = new Database();
+        SceneFactory sceneFactory = new SceneFactory(db);
         Label conversionLabel = new Label(result);
         Label historyLabel = new Label(historyTitleLabel);
 
