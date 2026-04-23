@@ -65,8 +65,5 @@ public class LogoutScene {
     Scene scene = new Scene(vBox, 500, 500);
     return scene;
   }
-<<<<<<< nettra/login-test-2
 }
-=======
-}
->>>>>>> main
+

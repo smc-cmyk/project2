@@ -17,15 +17,9 @@ public class InstructionsScene {
   // UI Strings
   private static final String title = "Instructions";
   private static final String instructions =
-<<<<<<< nettra/login-test-2
       "Click on each button to navigate to desired scene \n\n" +
           "Enter desired USD amount to convert, then click desired currency to convert to \n\n" +
           "Click 'Return' to go to the previous scene";
-=======
-      "Click on each button to navigate to desired scene. \n\n" +
-          "Enter desired USD amount to convert, then click desired currency to convert to. \n\n" +
-          "Click 'Return' to go to the previous scene.";
->>>>>>> main
 
   // Back button String
   private static final String back = "Return";
