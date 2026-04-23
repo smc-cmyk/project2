@@ -5,6 +5,9 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.chart.ui.HorizontalAlignment;
+import org.jfree.data.time.TimeSeries;
+import org.jfree.data.time.TimeSeriesCollection;
+import org.jfree.data.time.Year;
 import org.jfree.data.xy.XYDataset;
 
 import java.awt.*;
@@ -54,5 +57,54 @@ public class HistoryGraphScene {
     }
 
     private static XYDataset dataset() {
+        TimeSeries sEuro = new TimeSeries("USD to Euro");
+        sEuro.add(new Year(1970), 0);
+        sEuro.add(new Year(1980), 0);
+        sEuro.add(new Year(1990), 0);
+        sEuro.add(new Year(2000), 1.086);
+        sEuro.add(new Year(2010), 0.755);
+        sEuro.add(new Year(2020), 0.877);
+        sEuro.add(new Year(2026), CurrencyConstants.usdToEuro);
+
+        TimeSeries sYen = new TimeSeries("USD to Yen in 100s");
+        sYen.add(new Year(1970), 3.60);
+        sYen.add(new Year(1980), 2.2663);
+        sYen.add(new Year(1990), 1.250);
+        sYen.add(new Year(2000), 1.078);
+        sYen.add(new Year(2010), 0.8777);
+        sYen.add(new Year(2020), 1.0675);
+        sYen.add(new Year(2026), CurrencyConstants.usdToYen);
+
+        TimeSeries sPound = new TimeSeries("USD to Pound");
+        sPound.add(new Year(1970), 0.417);
+        sPound.add(new Year(1980), 0.43);
+        sPound.add(new Year(1990), 0.56);
+        sPound.add(new Year(2000), 0.66);
+        sPound.add(new Year(2010), 0.648);
+        sPound.add(new Year(2020), 0.78);
+        sPound.add(new Year(2026), CurrencyConstants.usdToPound);
+
+        TimeSeries sYuan = new TimeSeries("USD to Yuan");
+        sYuan.add(new Year(1970), 2.46);
+        sYuan.add(new Year(1980), 1.5);
+        sYuan.add(new Year(1990), 4.78);
+        sYuan.add(new Year(2000), 8.279);
+        sYuan.add(new Year(2010), 6.77);
+        sYuan.add(new Year(2020), 6.9);
+        sYuan.add(new Year(2026), CurrencyConstants.usdToYuan);
+
+        TimeSeries sCad = new TimeSeries("USD to Cad");
+        sCad.add(new Year(1970), 1.044);
+        sCad.add(new Year(1980), 1.169);
+        sCad.add(new Year(1990), 1.167);
+        sCad.add(new Year(2000), 1.486);
+        sCad.add(new Year(2010), 1.03);
+        sCad.add(new Year(2020), 1.342);
+        sCad.add(new Year(2026), CurrencyConstants.usdToCad);
+
+        TimeSeriesCollection dataset = new TimeSeriesCollection();
+        dataset.addSeries(sEuro);
+        return dataset;
+
     }
 }
