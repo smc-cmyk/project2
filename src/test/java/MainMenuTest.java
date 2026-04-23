@@ -16,116 +16,144 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @since 4/17/2026
  */
 public class MainMenuTest {
+  static Database db;
+
   @BeforeAll
   static void startup() {
     Platform.startup(() -> {});
+
+    db = new Database();
   }
 
   @Test
-  void testConverter() {
-    Scene scene = MainMenu.buildMenu(new Stage());
-    VBox root = (VBox) scene.getRoot();
-    boolean exists = false;
+  void testConverter() throws Exception {
+    final boolean[] exists = {false};
 
-    for (Node node : root.getChildren()) {
-      if (node instanceof Button button) {
-        if (button.getText().equals("USD Converter")) {
-          exists = true;
+    Platform.runLater(() -> {
+      Scene scene = MainMenu.buildMenu(new Stage());
+      VBox root = (VBox) scene.getRoot();
+
+      for (Node node : root.getChildren()) {
+        if (node instanceof Button button &&
+            button.getText().equals("USD Converter")) {
+          exists[0] = true;
           break;
         }
       }
-    }
 
-    assertTrue(exists);
+      assertTrue(exists[0]);
+    });
+
+    Thread.sleep(200);
   }
 
   @Test
-  void testInstructions() {
-    Scene scene = MainMenu.buildMenu(new Stage());
-    VBox root = (VBox) scene.getRoot();
-    boolean exists = false;
+  void testInstructions() throws Exception {
+    final boolean[] exists = {false};
 
-    for (Node node : root.getChildren()) {
-      if (node instanceof Button button) {
-        if (button.getText().equals("Instructions")) {
-          exists = true;
+    Platform.runLater(() -> {
+      Scene scene = MainMenu.buildMenu(new Stage());
+      VBox root = (VBox) scene.getRoot();
+
+      for (Node node : root.getChildren()) {
+        if (node instanceof Button button &&
+            button.getText().equals("Instructions")) {
+          exists[0] = true;
           break;
         }
       }
-    }
 
-    assertTrue(exists);
+      assertTrue(exists[0]);
+    });
+
+    Thread.sleep(200);
   }
 
   @Test
-  void testRates() {
-    Scene scene = MainMenu.buildMenu(new Stage());
-    VBox root = (VBox) scene.getRoot();
-    boolean exists = false;
+  void testRates() throws Exception {
+    final boolean[] exists = {false};
 
-    for (Node node : root.getChildren()) {
-      if (node instanceof Button button) {
-        if (button.getText().equals("Exchange Rates")) {
-          exists = true;
+    Platform.runLater(() -> {
+      Scene scene = MainMenu.buildMenu(new Stage());
+      VBox root = (VBox) scene.getRoot();
+
+      for (Node node : root.getChildren()) {
+        if (node instanceof Button button &&
+            button.getText().equals("Exchange Rates")) {
+          exists[0] = true;
           break;
         }
       }
-    }
 
-    assertTrue(exists);
+      assertTrue(exists[0]);
+    });
+
+    Thread.sleep(200);
   }
 
   @Test
-  void testRatesTable() {
-    Scene scene = MainMenu.buildMenu(new Stage());
-    VBox root = (VBox) scene.getRoot();
-    boolean exists = false;
+  void testRatesTable() throws Exception {
+    final boolean[] exists = {false};
 
-    for (Node node : root.getChildren()) {
-      if (node instanceof Button button) {
-        if (button.getText().equals("Exchange Rates History (Table)")) {
-          exists = true;
+    Platform.runLater(() -> {
+      Scene scene = MainMenu.buildMenu(new Stage());
+      VBox root = (VBox) scene.getRoot();
+
+      for (Node node : root.getChildren()) {
+        if (node instanceof Button button &&
+            button.getText().equals("Exchange Rates History (Table)")) {
+          exists[0] = true;
           break;
         }
       }
-    }
 
-    assertTrue(exists);
+      assertTrue(exists[0]);
+    });
+
+    Thread.sleep(200);
   }
 
   @Test
-  void testRatesGraph() {
-    Scene scene = MainMenu.buildMenu(new Stage());
-    VBox root = (VBox) scene.getRoot();
-    boolean exists = false;
+  void testRatesGraph() throws Exception {
+    final boolean[] exists = {false};
 
-    for (Node node : root.getChildren()) {
-      if (node instanceof Button button) {
-        if (button.getText().equals("Exchange Rates History (Graph)")) {
-          exists = true;
+    Platform.runLater(() -> {
+      Scene scene = MainMenu.buildMenu(new Stage());
+      VBox root = (VBox) scene.getRoot();
+
+      for (Node node : root.getChildren()) {
+        if (node instanceof Button button &&
+            button.getText().equals("Exchange Rates History (Graph)")) {
+          exists[0] = true;
           break;
         }
       }
-    }
 
-    assertTrue(exists);
+      assertTrue(exists[0]);
+    });
+
+    Thread.sleep(200);
   }
 
   @Test
-  void testLogout() {
-    Scene scene = MainMenu.buildMenu(new Stage());
-    VBox root = (VBox) scene.getRoot();
-    boolean exists = false;
+  void testLogout() throws Exception {
+    final boolean[] exists = {false};
 
-    for (Node node : root.getChildren()) {
-      if (node instanceof Button button) {
-        if (button.getText().equals("Logout")) {
-          exists = true;
+    Platform.runLater(() -> {
+      Scene scene = MainMenu.buildMenu(new Stage());
+      VBox root = (VBox) scene.getRoot();
+
+      for (Node node : root.getChildren()) {
+        if (node instanceof Button button &&
+            button.getText().equals("Logout")) {
+          exists[0] = true;
           break;
         }
       }
-    }
 
-    assertTrue(exists);
+      assertTrue(exists[0]);
+    });
+
+    Thread.sleep(200);
   }
 }

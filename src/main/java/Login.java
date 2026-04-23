@@ -29,9 +29,8 @@ public class Login {
   static TextField usernameInput = new TextField();
   static PasswordField passwordInput = new PasswordField();
 
-  static Scene buildLogin(Stage stage) {
-    SceneFactory factory = new SceneFactory();
-    Database db = new Database();
+  static Scene buildLogin(Stage stage, Database db) {
+    SceneFactory factory = new SceneFactory(db);
     stage.setTitle(title);
     Label usernameLabel = new Label(username);
     Label passwordLabel = new Label(password);
