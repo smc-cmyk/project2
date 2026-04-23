@@ -1,3 +1,13 @@
+/**
+ *
+ * Creates a table of the historical exchange rate data.
+ * Compare today's exchange rate with those from 1970 to today.
+ *
+ * @author Sean McFerran
+ * @version 0.1.0
+ * @since 04/14/2026
+ */
+
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -27,6 +37,7 @@ public class HistoryTableScene {
 
         Label titleLabel = new Label(title);
         Label tableLabel = new Label(table);
+        Label timeLabel = new Label(CurrencyConstants.dateOfRetrieval);
         tableLabel.setFont(Font.font("Monospaced", 12));
         Button backButton = new Button("Return");
 
@@ -34,7 +45,7 @@ public class HistoryTableScene {
             stage.setScene(sceneFactory.create(SceneType.MAIN_MENU, stage));
         });
 
-        VBox vBox = new VBox(10, titleLabel, tableLabel, backButton);
+        VBox vBox = new VBox(10, titleLabel, tableLabel, timeLabel, backButton);
         vBox.setAlignment(Pos.CENTER);
 
         return new Scene(vBox, 590, 300);
