@@ -14,17 +14,18 @@ import javafx.scene.Parent;
  **/
 public class UStoScene {
   public static Scene create(Stage stage) {
-      try {
-        Parent root = FXMLLoader.load(
-            Objects.requireNonNull(
-                UStoScene.class.getResource("/UStoScene.fxml")
-            )
-        );
+    try {
+      Parent root = FXMLLoader.load(
+          Objects.requireNonNull(
+              UStoScene.class.getResource("/UStoScene.fxml")
+          )
+      );
 
-        return new Scene(root, 400, 350);
+      return new Scene(root, 400, 350);
 
-      } catch (Exception e) {
-        e.printStackTrace();
-        return new Scene(new Label("Error loading scene"), 400, 350);
-      }
-}}
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new Scene(new Label("Error loading scene"), 400, 350);
+    }
+  }}
+
