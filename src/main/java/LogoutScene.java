@@ -17,52 +17,53 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class LogoutScene {
-    //UI Strings
-    private static final String logout = "Logout";
-     static final String check = "Are you sure you want to logout?";
-    private static final String yes = "Yes";
-    private static final String no = "No";
+  //UI Strings
+  private static final String logout = "Logout";
+  static final String check = "Are you sure you want to logout?";
+  private static final String yes = "Yes";
+  private static final String no = "No";
 
-    // Variables
-    static Label logoutLabel;
-    static Label checkLabel;
-    static Button yesButton;
-    static Button noButton;
+  // Variables
+  static Label logoutLabel;
+  static Label checkLabel;
+  static Button yesButton;
+  static Button noButton;
 
-    public Scene create(Stage stage) {
+  public static Scene create(Stage stage) {
 
-        SceneFactory factory = new SceneFactory();
+    SceneFactory factory = new SceneFactory();
 
-        // Initialization
-        logoutLabel = new Label(logout);
-        checkLabel = new Label(check);
-        yesButton = new Button(yes);
-        noButton = new Button(no);
+    // Initialization
+    logoutLabel = new Label(logout);
+    checkLabel = new Label(check);
+    yesButton = new Button(yes);
+    noButton = new Button(no);
 
-        // Yes button takes you to the login scene
-        yesButton.setOnAction(e -> {
-            // Custom Dialog Box showing user logged out before going to the login screen
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Logged Out");
-            alert.setHeaderText(null);
-            alert.setContentText("You're logged out.");
-            alert.showAndWait();
+    // Yes button takes you to the login scene
+    yesButton.setOnAction(e -> {
+      // Custom Dialog Box showing user logged out before going to the login screen
+      Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+      alert.setTitle("Logged Out");
+      alert.setHeaderText(null);
+      alert.setContentText("You're logged out.");
+      alert.showAndWait();
 
-            stage.setScene(factory.create(SceneType.LOGIN, stage));
-        });
+      stage.setScene(factory.create(SceneType.LOGIN, stage));
+    });
 
-        // No button takes you to the main menu scene
-        noButton.setOnAction(e -> {
-            stage.setScene(factory.create(SceneType.MAIN_MENU, stage));
-        });
+    // No button takes you to the main menu scene
+    noButton.setOnAction(e -> {
+      stage.setScene(factory.create(SceneType.MAIN_MENU, stage));
+    });
 
-        // Created the VBox
-        VBox vBox = new VBox(10, logoutLabel, checkLabel, yesButton, noButton);
-        vBox.setAlignment(Pos.CENTER);
-        vBox.setSpacing(10);
+    // Created the VBox
+    VBox vBox = new VBox(10, logoutLabel, checkLabel, yesButton, noButton);
+    vBox.setAlignment(Pos.CENTER);
+    vBox.setSpacing(10);
 
-        // Display the scene with dimensions
-        Scene scene = new Scene(vBox, 500, 500);
-        return scene;
+    // Display the scene with dimensions
+    Scene scene = new Scene(vBox, 500, 500);
+    return scene;
+  }
 }
-}
+
