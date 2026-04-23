@@ -53,7 +53,8 @@ public class CurrentExchangeRates {
      * @return scene
      */
     public static Scene create (Stage stage) {
-        SceneFactory SceneFactory = new SceneFactory();
+        Database db = new Database();
+        SceneFactory SceneFactory = new SceneFactory(db);
         stage.setTitle(title);
 
         Label headerLabel = new Label(title);

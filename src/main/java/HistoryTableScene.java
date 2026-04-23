@@ -32,8 +32,8 @@ public class HistoryTableScene {
             "+-------+-------+--------+-------+-------+-------+--------+--------+\n" +
             "\n";
     public static Scene create(Stage stage) {
-
-        SceneFactory sceneFactory = new SceneFactory();
+        Database db = new Database();
+        SceneFactory factory = new SceneFactory(db);
 
         Label titleLabel = new Label(title);
         Label tableLabel = new Label(table);
@@ -42,7 +42,7 @@ public class HistoryTableScene {
         Button backButton = new Button("Return");
 
         backButton.setOnAction(e -> {
-            stage.setScene(sceneFactory.create(SceneType.MAIN_MENU, stage));
+            stage.setScene(factory.create(SceneType.MAIN_MENU, stage));
         });
 
         VBox vBox = new VBox(10, titleLabel, tableLabel, timeLabel, backButton);

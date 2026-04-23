@@ -130,7 +130,9 @@ public class HistoryGraphScene {
         javafx.scene.control.Button returnButton = new Button("Return");
         //Return to main menu
         returnButton.setOnAction(e -> {
-            stage.setScene(SceneFactory.create(SceneType.MAIN_MENU,stage));
+          Database db = new Database();
+          SceneFactory factory = new SceneFactory(db);
+          stage.setScene(factory.create(SceneType.MAIN_MENU,stage));
         });
 
         VBox vBox = new VBox(10,viewer, returnButton);
