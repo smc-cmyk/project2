@@ -21,19 +21,18 @@ public class SceneFactory {
                 return Login.buildLogin(stage, db);
             case MAIN_MENU:
                 return MainMenu.buildMenu(stage);
-                case
-//            case EXCHANGE_RATE_HISTORY:
-//                return ExchangeRateHistoryScene.create(stage);
-//            case TABLE_OF_EXCHANGE_RATE_HISTORY:
-//                return TableOfExchangeHistoryScene.create(stage);
-//            case GRAPH_OF_EXCHANGE_RATE_HISTORY:
-//                return GraphOfExchangeHistoryScene.create(stage);
+            case EXCHANGE_RATE_HISTORY:
+                return CurrentExchangeRates.create(stage);
+            case TABLE_OF_EXCHANGE_RATE_HISTORY:
+                return HistoryTableScene.create(stage);
+            case GRAPH_OF_EXCHANGE_RATE_HISTORY:
+                return HistoryGraphScene.create(stage);
 //            case TABLE_OF_EXCHANGE_RATE_HISTORY_WITH_TIMESTAMPS:
 //                return TableOfExchangeHistoryWithTimestampsScene.create(stage);
             case US_TO_:
                 return UStoScene.create(stage);
             case INSTRUCTIONS:
-                return Instructions.create(stage);
+                return InstructionsScene.create(stage);
             case LOGOUT:
                 return LogoutScene.create(stage);
 
