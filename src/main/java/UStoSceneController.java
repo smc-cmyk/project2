@@ -42,7 +42,8 @@ public class UStoSceneController {
       USDConverterResults.convert(usd, rate, currency);
 
       Stage stage = (Stage) USDinput.getScene().getWindow();
-      SceneFactory factory = new SceneFactory();
+      Database db = new Database();
+      SceneFactory factory = new SceneFactory(db);
       stage.setScene(factory.create(SceneType.USD_CONVERTER_RESULT, stage));
       //double converted = usd * rate;
 

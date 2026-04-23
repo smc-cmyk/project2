@@ -21,8 +21,8 @@ public class SceneFactory {
                 return Login.buildLogin(stage, db);
             case MAIN_MENU:
                 return MainMenu.buildMenu(stage);
-            //case EXCHANGE_RATE_HISTORY:
-            //return ExchangeRateHistoryScene.create(stage);
+            case EXCHANGE_RATE_HISTORY:
+            return CurrentExchangeRates.create(stage);
             case TABLE_OF_EXCHANGE_RATE_HISTORY:
                 return HistoryTableScene.create(stage);
             case GRAPH_OF_EXCHANGE_RATE_HISTORY:
