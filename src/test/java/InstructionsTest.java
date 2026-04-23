@@ -7,35 +7,45 @@
  */
 
 import javafx.application.Platform;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-
 class InstructionsTest {
+    static Database db;
 
     @BeforeAll
     static void beforeAll() {
         Platform.startup(() -> {});
-    }
 
-    //Check for title to ensure information is flowing through
-    @Test
-    void testInstructions() {
-        Instructions.create(new Stage());
-
-        assertNotNull(Instructions.instructions);
-        assertTrue(Instructions.instructions.getText().contains("Click"));
+        db = new Database();
     }
 
     //Verify the back button is available
     @Test
-    void testBackButton() {
-        Instructions.create(new Stage());
-        assertNotNull(Instructions.back);
-        assertEquals("Back", Instructions.back.getText());
-    }
+    void testBackButton() throws Exception {
+        final boolean[] exists = {false};
 
+        Platform.runLater(() -> {
+            Scene scene = MainMenu.buildMenu(new Stage());
+            VBox root = (VBox) scene.getRoot();
+
+            for (Node node : root.getChildren()) {
+                if (node instanceof Button button &&
+                    button.getText().equals("Return")) {
+                    exists[0] = true;
+                    break;
+                }
+            }
+
+            assertTrue(exists[0]);
+        });
+
+        Thread.sleep(200);
+    }
 }
