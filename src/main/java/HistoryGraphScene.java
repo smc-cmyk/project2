@@ -133,6 +133,7 @@ public class HistoryGraphScene {
         XYDataset dataset = createDataset();
         JFreeChart chart = createChart(dataset);
         ChartViewer viewer = new ChartViewer(chart);
+        viewer.setPrefSize(300,250);
         stage.setScene(new Scene(viewer));
         stage.setTitle("Exchange Rate History Graph View");
 
