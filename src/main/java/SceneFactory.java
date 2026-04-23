@@ -15,7 +15,7 @@ public class SceneFactory {
       this.db = db;
     }
 
-    public Scene create (SceneType sceneType, Stage stage) {
+    public Scene create(SceneType sceneType, Stage stage) {
         switch(sceneType) {
            case LOGIN:
                 return Login.buildLogin(stage, db);
