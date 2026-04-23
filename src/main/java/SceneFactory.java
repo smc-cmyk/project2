@@ -18,8 +18,8 @@ public class SceneFactory {
         return MainMenu.buildMenu(stage);
 //            case EXCHANGE_RATE_HISTORY:
 //                return ExchangeRateHistoryScene.create(stage);
-//            case TABLE_OF_EXCHANGE_RATE_HISTORY:
-//                return TableOfExchangeHistoryScene.create(stage);
+      case TABLE_OF_EXCHANGE_RATE_HISTORY:
+        return HistoryTableScene.create(stage);
 //            case GRAPH_OF_EXCHANGE_RATE_HISTORY:
 //                return GraphOfExchangeHistoryScene.create(stage);
 //            case TABLE_OF_EXCHANGE_RATE_HISTORY_WITH_TIMESTAMPS:
