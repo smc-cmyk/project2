@@ -17,6 +17,7 @@
   <HBox spacing="20" alignment="CENTER">
     <Button text="CAD" onAction="#convertToCAD"/>
     <Button text="EUR" onAction="#convertToEUR"/>
+    <Button text="GBP" onAction="#convertToGBP"/>
     <Button text="CNY" onAction="#convertToCNY"/>
   </HBox>
 

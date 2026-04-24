@@ -27,6 +27,9 @@ public class UStoSceneController {
   }
 
   @FXML
+  private void convertToGBP() { handleConversion(CurrencyConstants.usdToPound, "GBP"); }
+
+  @FXML
   private void convertToCNY() {
     handleConversion(CurrencyConstants.usdToYuan, "CNY");
   }
