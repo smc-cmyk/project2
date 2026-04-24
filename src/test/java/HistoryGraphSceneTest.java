@@ -6,8 +6,16 @@ import org.jfree.data.xy.XYDataset;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ *
+ * History Graph Tests
+ *
+ * @author Sean McFerran
+ * @version 0.1.0
+ * @since 04/14/2026
+ */
 
 class HistoryGraphSceneTest {
 
