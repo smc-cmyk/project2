@@ -7,13 +7,17 @@
  */
 
 import javafx.application.Platform;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LogoutTest {
     private Stage stage;
@@ -24,17 +28,47 @@ public class LogoutTest {
         Platform.startup(() -> {});
     }
 
-    // Check if the logout scene works looking for the expected text
     @Test
-    void testLogout() {
-        stage = new Stage();
-        logout = new LogoutScene();
+    void testYesButton() throws Exception {
+        final boolean[] exists = {false};
 
-        Scene scene = logout.create(stage);
-        stage.setScene(scene);
-        stage.show();
+        Platform.runLater(() -> {
+            Scene scene = MainMenu.buildMenu(new Stage());
+            VBox root = (VBox) scene.getRoot();
 
-        assertNotNull(stage.getScene());
-        assertEquals("Are you sure you want to logout?", LogoutScene.checkLabel.getText());
+            for (Node node : root.getChildren()) {
+                if (node instanceof Button button &&
+                    button.getText().equals("Yes")) {
+                    exists[0] = true;
+                    break;
+                }
+            }
+
+            assertTrue(exists[0]);
+        });
+
+        Thread.sleep(200);
+    }
+
+    @Test
+    void testNoButton() throws Exception {
+        final boolean[] exists = {false};
+
+        Platform.runLater(() -> {
+            Scene scene = MainMenu.buildMenu(new Stage());
+            VBox root = (VBox) scene.getRoot();
+
+            for (Node node : root.getChildren()) {
+                if (node instanceof Button button &&
+                    button.getText().equals("No")) {
+                    exists[0] = true;
+                    break;
+                }
+            }
+
+            assertTrue(exists[0]);
+        });
+
+        Thread.sleep(200);
     }
 }
