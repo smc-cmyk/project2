@@ -11,12 +11,17 @@
       <sourceFolder url="file://$MODULE_DIR$/../../src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../src/test/resources" type="java-test-resource" />
     </content>
+    <content url="file://$MODULE_DIR$/../../src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/test/resources" type="java-test-resource" />
+    </content>
     <orderEntry type="jdk" jdkName="25" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="JavaFX_Starter.main" />
     <orderEntry type="library" name="Gradle: org.xerial:sqlite-jdbc:3.45.1.0" level="project" />
     <orderEntry type="library" name="Gradle: org.jfree:org.jfree.chart.fx:2.0.2" level="project" />
     <orderEntry type="library" name="Gradle: org.jfree:jfreechart:1.5.6" level="project" />
+    <orderEntry type="library" name="Gradle: jfree:jcommon:1.0.16" level="project" />
     <orderEntry type="library" name="Gradle: org.openjfx:javafx-fxml:mac-aarch64:22" level="project" />
     <orderEntry type="library" name="Gradle: org.openjfx:javafx-controls:mac-aarch64:22" level="project" />
     <orderEntry type="library" name="Gradle: org.junit.jupiter:junit-jupiter:5.10.0" level="project" />
