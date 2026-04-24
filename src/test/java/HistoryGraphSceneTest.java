@@ -4,7 +4,6 @@ import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.Year;
 import org.jfree.data.xy.XYDataset;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HistoryGraphSceneTest {
 
-    private HistoryGraphScene historyGraphScene;
     static Database db;
     private static XYDataset createDataset() {
         TimeSeries sEuro = new TimeSeries("USD to Euro");
