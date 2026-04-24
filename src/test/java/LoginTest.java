@@ -58,16 +58,17 @@ class LoginTest {
       VBox root = (VBox) scene.getRoot();
 
       for (Node node : root.getChildren()) {
-        if (node instanceof Button button) {
-          if (button.getText().equals("Register")) {
-            exists[0] = true;
-          }
+        if (node instanceof Button button &&
+            button.getText().equals("Register")) {
+          exists[0] = true;
+          break;
         }
       }
+
+      assertTrue(exists[0]);
     });
 
-    Thread.sleep(500);
-    assertTrue(exists[0]);
+    Thread.sleep(200);
   }
 
   @Test
