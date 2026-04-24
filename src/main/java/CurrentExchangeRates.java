@@ -46,6 +46,7 @@ public class CurrentExchangeRates {
      * @return scene
      */
     public static Scene create (Stage stage) {
+        stage.setTitle("Current Exchange Rates");
         Database db = new Database();
         SceneFactory SceneFactory = new SceneFactory(db);
 
@@ -60,7 +61,6 @@ public class CurrentExchangeRates {
                 new CurrentExchangeRates("YUAN", CurrencyConstants.usdToYuan)
         );
 
-        stage.setTitle(title);
 
         Label headerLabel = new Label(title);
 

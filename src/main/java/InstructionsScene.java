@@ -21,6 +21,7 @@ public class InstructionsScene {
           "Enter desired USD amount to convert, then click desired currency to convert to \n\n" +
           "Click 'Return' to go to the previous scene";
 
+
   // Back button String
   private static final String back = "Return";
 
@@ -29,6 +30,7 @@ public class InstructionsScene {
   private static Button backButton;
 
   public static Scene create(Stage stage) {
+    stage.setTitle("App Instructions");
     Database db = new Database();
     SceneFactory factory = new SceneFactory(db);
 

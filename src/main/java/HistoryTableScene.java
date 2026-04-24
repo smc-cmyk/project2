@@ -90,6 +90,7 @@ public class HistoryTableScene{
      * @return scene
      */
     public static Scene create (Stage stage) {
+        stage.setTitle("Exchange Rate History Table View");
         Database db = new Database();
         SceneFactory SceneFactory = new SceneFactory(db);
 
@@ -104,7 +105,7 @@ public class HistoryTableScene{
                 new HistoryTableScene("CAD", 1.044, 1.169, 1.167, 1.486, 1.03, 1.342, CurrencyConstants.usdToCad)
         );
 
-        stage.setTitle(title);
+
 
         Label headerLabel = new Label(title);
 
