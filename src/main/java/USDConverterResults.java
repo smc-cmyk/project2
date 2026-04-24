@@ -19,7 +19,7 @@ import java.util.List;
  * @since 4/23/26
  **/
 public class USDConverterResults {
-    private static final String historyTitleLabel = "History:";
+    private static final String historyTitleLabel = "History (Last 3):";
     private static String result = "";
     private static final List<String> history = new ArrayList<>();
 
